@@ -8,6 +8,8 @@ Ace Coding Interview with 75 Qs
 
 Problems:
 
+<a name="array--string"></a>
+
 | Array / String                                 |                  |        |                          |
 | ---------------------------------------------- | ---------------- | ------ | ------------------------ |
 | 1768. Merge Strings Alternately                | [Solution][1768] | Easy   | [詳解][1768-explanation] |
@@ -31,6 +33,8 @@ Problems:
 [334]: ./src/334.%20Increasing%20Triplet%20Subsequence/increasingTriplet.ts
 [443]: ./src/443.%20String%20Compression/compress.ts
 
+<a name="two-pointers"></a>
+
 | Two Pointers                    |                  |        |                         |
 | ------------------------------- | ---------------- | ------ | ----------------------- |
 | 283. Move Zeroes                | [Solution][283]  | Easy   | [詳解][283-explanation] |
@@ -44,6 +48,8 @@ Problems:
 [11]: ./src/11.%20Container%20With%20Most%20Water/maxArea.ts
 [1679]: ./src/1679.%20Max%20Number%20of%20K-Sum%20Pairs/maxOperations.ts
 
+<a name="sliding-window"></a>
+
 | Sliding Window                                                |                  |        |      |
 | ------------------------------------------------------------- | ---------------- | ------ | ---- |
 | 643. Maximum Average Subarray I                               | [Solution][643]  | Easy   | 詳解 |
@@ -56,6 +62,8 @@ Problems:
 [1004]: ./src/1004.%20Max%20Consecutive%20Ones%20III/longestOnes.ts
 [1493]: ./src/1493.%20Longest%20Subarray%20of%201's%20After%20Deleting%20One%20Element/longestSubarray.ts
 
+<a name="prefix-sum"></a>
+
 | Prefix Sum                      |                  |      |      |
 | ------------------------------- | ---------------- | ---- | ---- |
 | 1732. Find the Highest Altitude | [Solution][1732] | Easy | 詳解 |
@@ -63,6 +71,8 @@ Problems:
 
 [1732]: ./src/1732.%20Find%20the%20Highest%20Altitude/largestAltitude.ts
 [724]: ./src/724.%20Find%20Pivot%20Index/pivotIndex.ts
+
+<a name="hash-map--set"></a>
 
 | Hash Map / Set                           |                  |        |      |
 | ---------------------------------------- | ---------------- | ------ | ---- |
@@ -76,6 +86,8 @@ Problems:
 [1657]: ./src/1657.%20Determine%20if%20Two%20Strings%20Are%20Close/closeStrings.ts
 [2352]: ./src/2352.%20Equal%20Row%20and%20Column%20Pairs/equalPairs.ts
 
+<a name="stack"></a>
+
 | Stack                              |                  |        |      |
 | ---------------------------------- | ---------------- | ------ | ---- |
 | 2390. Removing Stars From a String | [Solution][2390] | Medium | 詳解 |
@@ -86,6 +98,8 @@ Problems:
 [735]: ./src/735.%20Asteroid%20Collision/asteroidCollision.ts
 [394]: ./src/394.%20Decode%20String/decodeString.ts
 
+<a name="queue"></a>
+
 | Queue                       |                 |        |      |
 | --------------------------- | --------------- | ------ | ---- |
 | 933. Number of Recent Calls | [Solution][933] | Easy   | 詳解 |
@@ -93,6 +107,8 @@ Problems:
 
 [933]: ./src/933.%20Number%20of%20Recent%20Calls/RecentCounter.ts
 [649]: ./src/649.%20Dota2%20Senate/predictPartyVictory.ts
+
+<a name="linked-list"></a>
 
 | Linked List                                   |                  |        |      |
 | --------------------------------------------- | ---------------- | ------ | ---- |
@@ -105,6 +121,8 @@ Problems:
 [328]: ./src/328.%20Odd%20Even%20Linked%20List/oddEvenList.ts
 [206]: ./src/206.%20Reverse%20Linked%20List/reverseList.ts
 [2130]: ./src/2130.%20Maximum%20Twin%20Sum%20of%20a%20Linked%20List/pairSum.ts
+
+<a name="binary-tree---dfs"></a>
 
 | Binary Tree - DFS                            |                  |        |      |
 | -------------------------------------------- | ---------------- | ------ | ---- |
@@ -122,6 +140,8 @@ Problems:
 [1372]: ./src/1372.%20Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/longestZigZag.ts
 [236]: ./src/236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/lowestCommonAncestor.ts
 
+<a name="binary-tree---bfs"></a>
+
 | Binary Tree - BFS                        |                  |        |      |
 | ---------------------------------------- | ---------------- | ------ | ---- |
 | 199. Binary Tree Right Side View         | [Solution][199]  | Medium | 詳解 |
@@ -130,6 +150,8 @@ Problems:
 [199]: ./src/199.%20Binary%20Tree%20Right%20Side%20View/rightSideView.ts
 [1161]: ./src/1161.%20Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/maxLevelSum.ts
 
+<a name="binary-search-tree"></a>
+
 | Binary Search Tree                  |                 |        |      |
 | ----------------------------------- | --------------- | ------ | ---- |
 | 700. Search in a Binary Search Tree | [Solution][700] | Easy   | 詳解 |
@@ -137,6 +159,8 @@ Problems:
 
 [700]: ./src/700.%20Search%20in%20a%20Binary%20Search%20Tree/searchBST.ts
 [450]: ./src/450.%20Delete%20Node%20in%20a%20BST/deleteNode.ts
+
+<a name="graphs---dfs"></a>
 
 | Graphs - DFS                                                 |                  |        |      |
 | ------------------------------------------------------------ | ---------------- | ------ | ---- |
@@ -150,6 +174,8 @@ Problems:
 [1466]: ./src/1466.%20Reorder%20Routes%20to%20Make%20All%20Paths%20Lead%20to%20the%20City%20Zero/minReorder.ts
 [399]: ./src/399.%20Evaluate%20Division/calcEquation.ts
 
+<a name="graphs---bfs"></a>
+
 | Graphs - BFS                             |                  |        |      |
 | ---------------------------------------- | ---------------- | ------ | ---- |
 | 1926. Nearest Exit from Entrance in Maze | [Solution][1926] | Medium | 詳解 |
@@ -157,6 +183,8 @@ Problems:
 
 [1926]: ./src/1926.%20Nearest%20Exit%20from%20Entrance%20in%20Maze/nearestExit.ts
 [994]: ./src/994.%20Rotting%20Oranges/orangesRotting.ts
+
+<a name="heap--priority-queue"></a>
 
 | Heap / Priority Queue                 |                  |        |      |
 | ------------------------------------- | ---------------- | ------ | ---- |
@@ -170,6 +198,8 @@ Problems:
 [2542]: ./src/2542.%20Maximum%20Subsequence%20Score/maxScore.ts
 [2462]: ./src/2462.%20Total%20Cost%20to%20Hire%20K%20Workers/totalCost.ts
 
+<a name="binary-search"></a>
+
 | Binary Search                                |                  |        |      |
 | -------------------------------------------- | ---------------- | ------ | ---- |
 | 374. Guess Number Higher or Lower            | [Solution][374]  | Easy   | 詳解 |
@@ -182,6 +212,8 @@ Problems:
 [162]: ./src/162.%20Find%20Peak%20Element/findPeakElement.ts
 [875]: ./src/875.%20Koko%20Eating%20Bananas/minEatingSpeed.ts
 
+<a name="backtracking"></a>
+
 | Backtracking                              |                 |        |      |
 | ----------------------------------------- | --------------- | ------ | ---- |
 | 17. Letter Combinations of a Phone Number | [Solution][17]  | Medium | 詳解 |
@@ -189,6 +221,8 @@ Problems:
 
 [17]: ./src/17.%20Letter%20Combinations%20of%20a%20Phone%20Number/letterCombinations.ts
 [216]: ./src/216.%20Combination%20Sum%20III/combinationSum3.ts
+
+<a name="dp---1d"></a>
 
 | DP - 1D                        |                  |        |      |
 | ------------------------------ | ---------------- | ------ | ---- |
@@ -201,6 +235,8 @@ Problems:
 [746]: ./src/746.%20Min%20Cost%20Climbing%20Stairs/minCostClimbingStairs.ts
 [198]: ./src/198.%20House%20Robber/rob.ts
 [790]: ./src/790.%20Domino%20and%20Tromino%20Tiling/numTilings.ts
+
+<a name="dp---multidimensional"></a>
 
 | DP - Multidimensional                                     |                  |        |                         |
 | --------------------------------------------------------- | ---------------- | ------ | ----------------------- |
@@ -216,6 +252,8 @@ Problems:
 [72]: ./src/72.%20Edit%20Distance/minDistance.ts
 [72-explanation]: ./src/72.%20Edit%20Distance/README.md
 
+<a name="bit-manipulation"></a>
+
 | Bit Manipulation                              |                  |        |      |
 | --------------------------------------------- | ---------------- | ------ | ---- |
 | 338. Counting Bits                            | [Solution][338]  | Easy   | 詳解 |
@@ -226,6 +264,8 @@ Problems:
 [136]: ./src/136.%20Single%20Number/singleNumber.ts
 [1318]: ./src/1318.%20Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/minFlips.ts
 
+<a name="trie"></a>
+
 | Trie                              |                  |        |      |
 | --------------------------------- | ---------------- | ------ | ---- |
 | 208. Implement Trie (Prefix Tree) | [Solution][208]  | Medium | 詳解 |
@@ -234,6 +274,8 @@ Problems:
 [208]: ./src/208.%20Implement%20Trie%20(Prefix%20Tree)/Trie.ts
 [1268]: ./src/1268.%20Search%20Suggestions%20System/suggestedProducts.ts
 
+<a name="intervals"></a>
+
 | Intervals                                       |                 |        |      |
 | ----------------------------------------------- | --------------- | ------ | ---- |
 | 435. Non-overlapping Intervals                  | [Solution][435] | Medium | 詳解 |
@@ -241,6 +283,8 @@ Problems:
 
 [435]: ./src/435.%20Non-overlapping%20Intervals/eraseOverlapIntervals.ts
 [452]: ./src/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons/findMinArrowShots.ts
+
+<a name="monotonic-stack"></a>
 
 | Monotonic Stack         |                 |        |      |
 | ----------------------- | --------------- | ------ | ---- |
