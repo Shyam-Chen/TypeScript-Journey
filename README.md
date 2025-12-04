@@ -140,13 +140,6 @@ Environment: Node
 
 [Fastify Starter](https://github.com/Shyam-Chen/Fastify-Starter)
 
-Environment: Bun/Deno
-
-Elysia
-
-- 起手式 (Getting Started)
-- 應用程式 (Application)
-
 ---
 
 ## 雲端應用 (Cloud Applications)
@@ -172,8 +165,8 @@ Environment: Node
   - Back-end App 後端應用
   - MongoDB 文件資料庫
   - MinIO 檔案儲存
-  - Redis 快取和佇列服務
-  - Background Worker 佇列處理
+  - Redis 鍵值對資料庫 -快取和佇列服務
+  - Background Worker 背景作業 - 佇列處理
   - Qdrant 向量資料庫
 
 ---
@@ -190,5 +183,4 @@ Environment: Node + Rust (No-code/Low-code)
 - iOS
 - Linux
   - Ubuntu Desktop
-  - Raspberry Pi + Yahboom 7 inch HD capacitive touch screen
-  - Jetson Orin Nano + Yahboom 7 inch HD capacitive touch screen
+  - Raspberry Pi 5 + Raspberry Pi Touch Display 2

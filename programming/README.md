@@ -228,6 +228,14 @@ const foo: Array<number> = [3, 2, 1];
 const bar: Array<string> = ['x', 'y', 'z'];
 ```
 
+```ts
+const foo = [1, 2, 3];
+// 自動推斷型別為 const foo: number[]
+
+const foo = [1, '2', 3];
+// 自動推斷型別為 const foo: (string | number)[]
+```
+
 ### Object (物件)
 
 ```ts
@@ -239,6 +247,18 @@ const foo: object = { a: 1, b: 1, c: 1 };
 const { c, ...bar } = foo;
 
 bar; // {a: number, b: number};
+```
+
+```ts
+type User = 'alice' | 'bob' | 'carol';
+type UserScores = Record<User, number>;
+
+const scores: UserScores = {
+  alice: 95,
+  bob: 80,
+  carol: 75,
+  // dan: 66, // ❌ 錯誤，不可加入其它的鍵
+};
 ```
 
 ### Symbol (象徵)
@@ -269,6 +289,16 @@ const KEY = Symbol();
 const foo = { [KEY]: 123 };
 
 foo[KEY]; // 123
+```
+
+典型的命名方式：
+
+```ts
+export const kMount = Symbol('mount');
+export const kDestroy = Symbol('destroy');
+
+export const kTimerId = Symbol('timerId');
+export const kTimeoutRef = Symbol('timeoutRef');
 ```
 
 ### Tuple (元組)
@@ -365,9 +395,9 @@ let baz: string | undefined;
 baz; // OK
 ```
 
-```ts
-// non-null assertion operator
+#### 非空斷言運算子 (Non-null Assertion Operator)
 
+```ts
 const func = (obj) => {
   if (!obj || !obj.value) return;
   return obj.value;
@@ -377,18 +407,36 @@ const func = (obj) => obj!.value;
 ```
 
 ```ts
-// optional chaining operator
+const value: string | undefined = true ? 'value' : undefined;
 
+// 直接操作會報錯
+console.log(value.length); // ❌ Error: 'value' is possibly 'undefined'.
+
+// 正確的檢查方式
+if (value) console.log(value.length); // OK
+
+// 使用非空斷言運算子
+console.log(value!.length); // OK: 告訴編譯器 'value' 不是 'null' 或 'undefined'
+```
+
+```ts
+// 告訴編譯器 'matrix[0]' 不會是 'null' 或 'undefined'
+matrix[0]![0];
+```
+
+#### 可選串連運算子 (Optional Chaining Operator)
+
+```ts
 const value = response && response.foo && response.foo.bar && response.foo.bar.baz;
-
+// 改成用可選串連運算子
 const value = response?.foo?.bar?.baz;
 ```
 
 ### Never (從未)
 
 ```ts
-function ❌ Error(message: string): never {
-  throw new ❌ Error(message);
+function Error(message: string): never {
+  throw new Error(message);
 }
 ```
 
@@ -1361,7 +1409,7 @@ Promise.race([
 ```ts
 foo()
   .then(() => console.log(4))
-  .catch((❌ Error) => console.❌ Error(❌ Error));
+  .catch((error) => console.error('Error'));
 ```
 
 鏈接:
@@ -1371,7 +1419,7 @@ foo()
   .then(() => console.log(4))
   .then(() => console.log(6))
   .then(() => console.log(8))
-  .catch((❌ Error) => console.❌ Error(❌ Error))
+  .catch((error) => console.error('Error'));
   .finally(() => console.log('Fulfilled or Rejected'));
 ```
 
@@ -1397,6 +1445,21 @@ for (const item in list) {
 // "0"
 // "1"
 // "2"
+
+const scores = {
+  alice: 95,
+  bob: 80,
+  carol: 75,
+};
+
+for (const item in scores) {
+  const name = item;
+  const score = scores[item];
+  console.log(`${name}: ${score}`);
+}
+// alice: 95
+// bob: 80
+// carol: 75
 ```
 
 `for..of`
