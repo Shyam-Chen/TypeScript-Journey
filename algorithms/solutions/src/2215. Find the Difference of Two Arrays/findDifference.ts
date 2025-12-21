@@ -4,15 +4,16 @@ type FindDifference = (nums1: number[], nums2: number[]) => number[][];
  * Accepted
  */
 export const findDifference: FindDifference = (nums1, nums2) => {
-  // Create sets from nums1 and nums2
+  // 根據 nums1 和 nums2 建立集合 Set
   const set1 = new Set(nums1);
   const set2 = new Set(nums2);
 
-  // Find distinct elements in nums1 not in nums2
-  const distinctNums1 = Array.from(set1).filter((num) => !set2.has(num));
+  // 找出集合 set1 中不在集合 set2 的不同元素，再轉成陣列
+  const diff1 = [...set1.difference(set2)];
 
-  // Find distinct elements in nums2 not in nums1
-  const distinctNums2 = Array.from(set2).filter((num) => !set1.has(num));
+  // 找出集合 set2 中不在集合 set1 的不同元素，再轉成陣列
+  const diff2 = [...set2.difference(set1)];
 
-  return [distinctNums1, distinctNums2];
+  // 回傳結果
+  return [diff1, diff2];
 };
