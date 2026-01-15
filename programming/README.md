@@ -236,6 +236,12 @@ const foo = [1, '2', 3];
 // 自動推斷型別為 const foo: (string | number)[]
 ```
 
+```ts
+const stages = ['alpha', 'beta', 'gamma'] as const;
+type Stage = (typeof stages)[number];
+// type Stage = "alpha" | "beta" | "gamma"
+```
+
 ### Object (物件)
 
 ```ts
@@ -259,6 +265,28 @@ const scores: UserScores = {
   carol: 75,
   // dan: 66, // ❌ 錯誤，不可加入其它的鍵
 };
+```
+
+```ts
+const stages = ['alpha', 'beta', 'gamma'] as const;
+type Stage = (typeof stages)[number];
+
+type MonthlyStats = {
+  [month: string]: {
+    [stage in Stage]?: {
+      completed: number;
+    };
+  };
+};
+
+const monthlyStats: MonthlyStats = {};
+
+const month = '2028/2/28';
+const stage = 'beta';
+
+monthlyStats[month] ??= {};
+monthlyStats[month][stage] ??= { completed: 0 };
+monthlyStats[month][stage].completed += 8;
 ```
 
 ### Symbol (象徵)
@@ -648,11 +676,11 @@ import { join } from 'path'; // OK
 ```
 
 ```ts
-import path from 'path';
+import path from 'node:path';
 
 path.join(import.meta.dirname, 'thing');
 
-import { join } from 'path';
+import { join } from 'node:path';
 
 join(import.meta.dirname, 'thing');
 ```
