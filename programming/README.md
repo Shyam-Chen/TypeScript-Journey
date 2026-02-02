@@ -460,6 +460,10 @@ const value = response && response.foo && response.foo.bar && response.foo.bar.b
 const value = response?.foo?.bar?.baz;
 ```
 
+#### (Nullish coalescing assignment)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment
+
 ### Never (從未)
 
 ```ts
@@ -587,6 +591,16 @@ type Data = {
 
 type IdOnly = OnlyId<Data>;
 // type IdOnly = { userId: number; productId: number }
+```
+
+### 全域物件 (Global Objects)
+
+```ts
+declare global {
+  var __MY_FLAG__: boolean;
+}
+
+globalThis.__MY_FLAG__ = true;
 ```
 
 ## Namespaces (命名空間)
@@ -1013,7 +1027,10 @@ foo.bar; // "Getter: baz"
 
 ```ts
 class Point {
-  constructor(public x: number, public y: number) {}
+  constructor(
+    public x: number,
+    public y: number,
+  ) {}
 
   static zero(): object {
     return new Point(0, 0);
