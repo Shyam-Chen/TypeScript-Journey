@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite-node -w src/main.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "biome check --write"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.2",
+    "@fastify/cors": "11.2.0",
+    "@fastify/helmet": "13.0.2",
+    "@fastify/jwt": "^10.0.0",
+    "@fastify/mongodb": "^9.0.2",
+    "@fastify/multipart": "^9.3.0",
+    "@fastify/one-line-logger": "2.0.2",
+    "@fastify/rate-limit": "10.3.0",
+    "@fastify/sensible": "6.0.4",
+    "@fastify/sse": "^0.4.0",
+    "@fastify/type-provider-typebox": "6.1.0",
+    "@fastify/under-pressure": "9.0.3",
+    "@fastify/websocket": "^11.2.0",
+    "@qdrant/js-client-rest": "^1.16.2",
+    "ai": "^6.0.6",
+    "fastify": "5.6.2",
+    "fastify-plugin": "5.1.0",
+    "typebox": "1.0.71",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.10",
+    "@types/node": "24.6.2",
+    "process-envify": "2.0.0",
+    "typescript": "5.9.3",
+    "vite": "8.0.0-beta.5",
+    "vite-node": "^5.2.0",
+    "vite-plugin-fastify": "1.2.6",
+    "vite-plugin-fastify-routes": "1.1.3"
+  }
+}

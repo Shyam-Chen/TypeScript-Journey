@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "biome check --write"
+  },
+  "dependencies": {
+    "@pulumi/docker": "^4.11.0",
+    "@pulumi/google-native": "^0.32.0",
+    "@pulumi/kubernetes": "^4.24.1",
+    "@pulumi/pulumi": "^3.215.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.11",
+    "@oxc-node/core": "^0.0.35",
+    "@types/node": "^24.10.6",
+    "typescript": "^5.9.3"
+  }
+}

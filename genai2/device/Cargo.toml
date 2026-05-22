@@ -1,0 +1,8 @@
+[package]
+name = "device"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+embassy-rp = { version = "0.9.0", features = ["rt"] }
+embassy-executor = { version = "0.9.0", features = ["arch-cortex-m", "executor-thread", "executor-interrupt", "defmt"] }
