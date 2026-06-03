@@ -59,7 +59,7 @@ Environment: Deno
   - [雜湊表 (Hash Table)](./algorithms/learning/hash-table/README.md)
   - [二元樹 (Binary Tree)](./algorithms/learning/binary-tree/README.md)
   - [二元搜尋樹 (Binary Search Tree)](./algorithms/learning/binary-search-tree/README.md)
-  - [平衡樹 (Balanced Tree, AVL / Red-Black Tree)](./algorithms/learning/balanced-tree/README.md)
+  - [~~平衡樹 (Balanced Tree, AVL / Red-Black Tree)~~](./algorithms/learning/balanced-tree/README.md)
   - [堆積 (Heap)](./algorithms/learning/heap/README.md)
   - [字典樹 (Trie)](./algorithms/learning/trie/README.md)
   - [圖 (Graph)](./algorithms/learning/graph/README.md)
@@ -93,46 +93,6 @@ Environment: Deno
   - [字典樹 (Trie)](./algorithms/solutions/Basic.md#trie)
   - [區間 (Intervals)](./algorithms/solutions/Basic.md#intervals)
   - [單調堆疊 (Monotonic Stack)](./algorithms/solutions/Basic.md#monotonic-stack)
-- [Advanced - Top Interview 150](./algorithms/solutions/Advanced.md)
-  - 陣列 / 字串 (Array / String)
-  - 雙指標 (Two Pointers)
-  - 滑動視窗 (Sliding Window)
-  - 矩陣 (Matrix)
-  - 雜湊映射 (Hashmap)
-  - 區間 (Intervals)
-  - 堆疊 (Stack)
-  - 鏈結串列 (Linked List)
-  - 二元樹一般 (Binary Tree General)
-  - 二元樹廣度優先搜尋 (Binary Tree BFS)
-  - 二元搜尋樹 (Binary Search Tree)
-  - 圖一般 (Graph General)
-  - 圖廣度優先搜尋 (Graph BFS)
-  - 字典樹 (Trie)
-  - 回溯 (Backtracking)
-  - 分治 (Divide & Conquer)
-  - 卡丹演算法 (Kadane's Algorithm)
-  - 二分搜尋 (Binary Search)
-  - 堆積 (Heap)
-  - 位元操作 (Bit Manipulation)
-  - 數學 (Math)
-  - 一維動態規劃 (1D DP)
-  - 多維動態規劃 (Multidimensional DP)
-- [Impactful - Top 100 Liked](./algorithms/solutions/Impactful.md)
-  - 回溯 (Backtracking)
-  - 二分搜尋 (Binary Search)
-  - 二元樹 (Binary Tree)
-  - 動態規劃 (Dynamic Programming)
-  - 圖 (Graph)
-  - 貪婪 (Greedy)
-  - 雜湊 (Hashing)
-  - 堆積 (Heap)
-  - 鏈結串列 (Linked Lists)
-  - 矩陣 (Matrix)
-  - 滑動視窗 (Sliding Window)
-  - 堆疊 (Stack)
-  - 雙指標 (Two Pointers)
-  - 字典樹 (Trie)
-  - 雜項 (Misc)
 
 ---
 
@@ -149,6 +109,9 @@ Fresh
 Environment: Node
 
 [Vue Starter](https://github.com/Shyam-Chen/Vue-Starter)
+
+- SPA
+- Prerendering SPA
 
 ---
 
@@ -195,6 +158,7 @@ Environment: Node + Rust (No-code/Low-code)
 
 [Tauri Starter](https://github.com/Shyam-Chen/Tauri-Starter)
 
+- Web
 - Windows
 - macOS
 - Android

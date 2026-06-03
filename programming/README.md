@@ -39,13 +39,10 @@
 
 ```sh
 # Windows (WinGet)
->_ winget install --id=DenoLand.Deno  -e
+>_ winget install -e --id DenoLand.Deno
 
 # macOS (Homebrew)
 $ brew install deno
-
-# Linux (Devbox via Nix)
-$ devbox global add deno
 ```
 
 ```sh
@@ -950,7 +947,8 @@ const b = new B(); // logs "B"
 `public` 表示可以在任何定放進行操作 <br>
 `private` 表示只能在自身內部進行操作 <br>
 `protected` 表示可以在自身或子內部進行操作 <br>
-`readonly`
+`readonly` <br>
+`static`
 
 ```ts
 class Thing {
@@ -959,6 +957,9 @@ class Thing {
   protected baz: string;
 
   readonly num: number;
+
+  static count: number;
+  static readonly PI: number = 3.14159;
 }
 ```
 
@@ -966,10 +967,30 @@ class Thing {
 class Thing {
   foo: string; // public
   #bar: string; // private
-  protected baz: string;
+  _baz: string; // protected ← 通常這是一種約定
 
   readonly num: number;
+  static count: number;
+
+  static readonly PI: number = 3.14159;
 }
+```
+
+將 `static` 與 `public`、`private`、`protected` 一起使用：
+
+```ts
+class BankSystem {
+  static bankName: string = 'MyBank'; // public
+  static #totalFunds: number = 1_000_000; // private
+  static _interestRate: number = 0.05; // protected
+
+  static getInfo(): string {
+    return `${BankSystem.bankName} - Funds: ${BankSystem.#totalFunds.toLocaleString()}`;
+  }
+}
+
+console.log(BankSystem.bankName); // MyBank
+console.log(BankSystem.getInfo()); // MyBank - Funds: 1,000,000
 ```
 
 ```ts
@@ -982,6 +1003,72 @@ class Name {
 }
 
 new Name('Hale').name; // ❌ Error: 'name' is private
+```
+
+```ts
+class Animal {
+  name: string;
+  protected sound: string; // 只有自己和子類別可以存取
+
+  constructor(name: string, sound: string) {
+    this.name = name;
+    this.sound = sound;
+  }
+
+  protected makeSound(): void {
+    console.log(`${this.name} says: ${this.sound}`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name: string) {
+    super(name, 'Woof');
+  }
+
+  bark(): void {
+    this.makeSound(); // ✅ 子類別可以存取 protected method
+    console.log(this.sound); // ✅ 子類別可以存取 protected property
+  }
+}
+
+const dog = new Dog('Rex');
+dog.bark(); // ✅ Rex says: Woof
+// dog.sound; // ❌ 外部無法存取 protected 屬性
+// dog.makeSound(); // ❌ 外部無法呼叫 protected 方法
+```
+
+如果改成用單一前導底線 `_` 的約定：
+
+```ts
+class Animal {
+  name: string;
+  _sound: string;
+
+  constructor(name: string, sound: string) {
+    this.name = name;
+    this._sound = sound;
+  }
+
+  _makeSound(): void {
+    console.log(`${this.name} says: ${this._sound}`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name: string) {
+    super(name, 'Woof');
+  }
+
+  bark(): void {
+    this._makeSound();
+    console.log(this._sound);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.bark();
+dog._sound; // ✅
+dog._makeSound(); // ✅
 ```
 
 ```ts
@@ -998,6 +1085,27 @@ class Adder {
 let foo: Adder = new Adder(1);
 
 console.log(foo.add(2));
+```
+
+```ts
+class Employee {
+  static headcount: number = 0;
+
+  #firstName: string;
+  #lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    Employee.headcount += 1; // 每次建立實體時加 1
+
+    this.#firstName = firstName;
+    this.#lastName = lastName;
+  }
+}
+
+new Employee('Alice', 'Smith');
+console.log(Employee.headcount); // 1 (所有實體共享)
+new Employee('Bob', 'Smith');
+console.log(Employee.headcount); // 2 (所有實體共享)
 ```
 
 ### Accessors (訪問器)
