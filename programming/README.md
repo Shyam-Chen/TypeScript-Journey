@@ -5,6 +5,7 @@
 ### 目錄 (Table of Contents)
 
 - [起手式 (Getting Started)](#起手式-getting-started)
+- [輸出 (Output)](#輸出-output)
 - [Variable Declarations (變數宣告)](#variable-declarations-變數宣告)
 - [Destructuring (分割代入)](#destructuring-分割代入)
 - [Types (型別)](#types-型別)
@@ -35,7 +36,7 @@
 
 ## 起手式 (Getting Started)
 
-先決條件 (Prerequisites):
+安裝 Deno：
 
 ```sh
 # Windows (WinGet)
@@ -54,6 +55,20 @@ deno 2.5.6
 
 ```sh
 $ deno init my-project
+```
+
+`deno.json`：
+
+```json
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "fmt": {
+    "lineWidth": 100,
+    "singleQuote": true
+  }
+}
 ```
 
 執行:
@@ -82,7 +97,36 @@ $ deno lint
 $ deno check
 ```
 
+## 輸出 (Output)
+
+1. 單一值
+
+```ts
+console.log('Hello, World!'); // Hello, World!
+console.log(123); // 123
+console.log(3.14); // 3.14
+```
+
+2. 多個值
+
+```ts
+console.log('Name:', 'Alice', '|', 'Age:', 22);
+// Name: Alice | Age: 22
+```
+
+3. 模板字串
+
+```ts
+const name = 'Alice';
+const age = 22;
+
+console.log(`Name: ${name}, Age: ${age}`);
+// Name: Alice, Age: 22
+```
+
 ## Variable Declarations (變數宣告)
+
+1. `let` 宣告
 
 ```ts
 let foo = 123;
@@ -101,17 +145,43 @@ if (true) {
 foo; // 123
 ```
 
+2. `const` 宣告
+
 ```ts
 const bar = 123;
 bar; // 123
-bar = 456; // ❌ Error
+bar = 456; // ❌ 錯誤：不可重新賦值
 ```
 
 ```ts
 const foo = { bar: 123 };
-foo = { bar: 456 }; // ❌ Error
-foo.bar = 456; // OK
+foo = { bar: 456 }; // ❌ 錯誤：不能重新賦值整個物件
+foo.bar = 456; // ✅ 修改屬性是允許的
 foo; // { bar: 456 }
+```
+
+3. 最佳實踐建議
+
+優先使用 `const` 宣告變數，只有在確定值需要改變時才使用 `let`。使用 `const` 來定義常數或初始化後不應更改的不可變值。
+
+```ts
+const MAX_RETRIES: number = 3;
+
+let currentRetry: number = 0;
+
+for (let i = 0; i < MAX_RETRIES; i++) {
+  currentRetry += 1;
+}
+
+console.log(currentRetry); // 3
+```
+
+4. 同時賦值多個變數
+
+```ts
+const [a, b, c] = [1, 2, 3];
+console.log(`a = ${a}, b = ${b}, c = ${c}`);
+// a = 1, b = 2, c = 3
 ```
 
 ## Destructuring (分割代入)
@@ -183,6 +253,33 @@ b; // 3
 ```ts
 let foo: boolean = true;
 let bar: boolean = false;
+let baz = false; // 自動推斷為 boolean
+```
+
+強轉：
+
+```ts
+const val = 1;
+
+const flag1 = Boolean(val);
+const flag2 = !!val;
+console.log(typeof flag1); // boolean
+console.log(typeof flag2); // boolean
+```
+
+真 (Truthy) 與假(Falsy) 值：
+
+```ts
+console.log(Boolean(0)); // false
+console.log(Boolean(-0)); // false
+console.log(Boolean(0n)); // false
+console.log(Boolean('')); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(NaN)); // false
+
+console.log(Boolean('Hello')); // true
+console.log(Boolean(1)); //true
 ```
 
 ### Number (數值)
@@ -423,22 +520,16 @@ baz; // OK
 #### 非空斷言運算子 (Non-null Assertion Operator)
 
 ```ts
-const func = (obj) => {
-  if (!obj || !obj.value) return;
-  return obj.value;
-};
-
-const func = (obj) => obj!.value;
-```
-
-```ts
-const value: string | undefined = true ? 'value' : undefined;
+const condition = true;
+const value: string | undefined = condition ? 'value' : undefined;
 
 // 直接操作會報錯
 console.log(value.length); // ❌ Error: 'value' is possibly 'undefined'.
 
 // 正確的檢查方式
 if (value) console.log(value.length); // OK
+// 或者
+console.log(value?.length);
 
 // 使用非空斷言運算子
 console.log(value!.length); // OK: 告訴編譯器 'value' 不是 'null' 或 'undefined'
@@ -808,13 +899,13 @@ const calculator = {
     return a + b;
   },
   // or
-  bar: (parameter) => {
+  add: (parameter) => {
     return a + b;
   },
   // or
-  bar: (parameter) => a + b,
+  add: (parameter) => a + b,
   // or
-  bar(parameter) {
+  add(parameter) {
     return a + b;
   },
 };
@@ -852,10 +943,24 @@ greetFn();
 // Hi, I'm Alice
 ```
 
+箭頭函式 `() =>` 沒有自己的 `this`；它從定義位置的外層詞法環境繼承 `this`。
+
+```ts
+const user = {
+  name: 'Alice',
+  greet: () => {
+    // 這裡的 this 是指向 globalThis
+    console.log(`Hi, I'm ${this.name}`); // ❌ Error: The containing arrow function captures the global value of 'this'.
+  },
+};
+
+user.greet();
+```
+
 ### Optional Parameters (可選參數)
 
 ```ts
-const thing = function (a: string, b: string, c?: string): string {
+const thing = (a: string, b: string, c?: string): string => {
   return `${a} ${b} ${c}`;
 };
 
@@ -865,7 +970,7 @@ thing('foo'); // ❌ Error
 ```
 
 ```ts
-const thing = function (a: string, b: string, c?: string): string {
+const thing = (a: string, b: string, c?: string): string => {
   if (c !== undefined) return `${a} ${b} ${c}`;
   return `${a} ${b}`;
 };
@@ -878,12 +983,34 @@ thing('foo'); // ❌ Error
 ### Default Parameters (預設參數)
 
 ```ts
-const thing = function (a: string, b: string = 'bar'): string {
+function thing(a: string, b: string = 'bar'): string {
   return `${a} ${b}`;
-};
+}
 
 thing('foo'); // foo bar
 thing('foo', 'baz'); // foo baz
+```
+
+### 物件分割代入參數
+
+```ts
+function printPerson({
+  name = 'Shyam',
+  age = 28,
+  isActive = true,
+}: {
+  name?: string;
+  age?: number;
+  isActive?: boolean;
+} = {}) {
+  console.log(`name = ${name}, age = ${age}, isActive = ${isActive}`);
+}
+
+printPerson(); // name = Shyam, age = 28, isActive = true
+printPerson({ age: 30 }); // name = Shyam, age = 30, isActive = true
+printPerson({ name: 'Alice' }); // name = Alice, age = 28, isActive = true
+printPerson({ age: 25, isActive: false }); // name = Shyam, age = 25, isActive = false
+// printPerson({ gender: 'boy' }); // ❌ Error
 ```
 
 ## Classes (類別)
