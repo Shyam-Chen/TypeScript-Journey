@@ -1887,6 +1887,26 @@ async function read() {
 
 ### Class Decorators (類別修飾器)
 
+用來**觀察 (observe)、修改 (modify) 或替換 (replace)**一個類別的定義。
+
+```ts
+function MyDecorator(constructor: Function) {
+  console.log('Decorator 被呼叫於:', constructor.name);
+}
+
+@MyDecorator
+class MyClass {
+  constructor() {
+    console.log('MyClass 實例被建立');
+  }
+}
+
+const instance = new MyClass();
+// 輸出：
+// Decorator 被呼叫於: MyClass
+// MyClass 實例被建立
+```
+
 ```ts
 const Foo = (value: any) => {
   return (target: any) => {
@@ -1909,6 +1929,44 @@ const Foo = (obj) => (target) => {};
   b: '',
 })
 class Thing {}
+```
+
+```ts
+const routeRegistry: Record<string, string> = {};
+
+function Controller(basePath: string) {
+  return function (constructor: Function) {
+    routeRegistry[constructor.name] = basePath;
+    constructor.prototype.basePath = basePath;
+    console.log(`[Controller] ${constructor.name} 已註冊路由: ${basePath}`);
+  };
+}
+
+function Injectable(constructor: Function) {
+  constructor.prototype.injectable = true;
+  console.log(`[DI] ${constructor.name} 已標記為可注入服務`);
+}
+
+@Injectable
+class UserService {
+  getUsers() {
+    return [{ id: 1, name: 'Alice' }];
+  }
+}
+
+@Controller('/api/users')
+class UserController {
+  constructor(private userService = new UserService()) {}
+
+  handleGet() {
+    return this.userService.getUsers();
+  }
+}
+
+const ctrl = new UserController();
+console.log((ctrl as any).basePath); // /api/users
+console.log(ctrl.handleGet()); // [ { id: 1, name: "Alice" } ]
+console.log(routeRegistry); // { UserController: "/api/users" }
 ```
 
 ### Method Decorators (方法修飾器)
@@ -1980,7 +2038,7 @@ const Foo = (target: any, key: any, index: number) => {
 };
 
 class Bar {
-  print(@Foo public baz): void {
+  print(@Foo baz): void {
     console.log(baz);
   }
 }
@@ -1999,7 +2057,7 @@ const Foo = (value: any) => {
 };
 
 class Thing {
-  @Foo('bar') public baz: string;
+  @Foo('bar') baz: string;
 }
 ```
 

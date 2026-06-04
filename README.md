@@ -5,7 +5,6 @@
 - Deno Runtime
   - [程式設計 (Programming)](#程式設計-programming)
   - [演算法 (Algorithms)](#演算法-algorithms)
-  - [全端網頁應用 (Full Stack Web Applications)](#全端網頁應用-full-stack-web-applications)
 - Node Runtime
   - [網頁應用 (Web Applications)](#網頁應用-web-applications)
   - [伺服器應用 (Server Applications)](#伺服器應用-server-applications)
@@ -19,6 +18,7 @@
 Environment: Deno
 
 - [起手式 (Getting Started)](./programming/README.md#起手式-getting-started)
+- [輸出 (Output)](./programming/README.md#輸出-output)
 - [Variable Declarations (變數宣告)](./programming/README.md#variable-declarations-變數宣告)
 - [Destructuring (分割代入)](./programming/README.md#destructuring-分割代入)
 - [Types (型別)](./programming/README.md#types-型別)
@@ -96,14 +96,6 @@ Environment: Deno
 
 ---
 
-## 全端網頁應用 (Full Stack Web Applications)
-
-Environment: Deno
-
-Fresh
-
----
-
 ## 網頁應用 (Web Applications)
 
 Environment: Node
@@ -120,6 +112,9 @@ Environment: Node
 Environment: Node
 
 [Fastify Starter](https://github.com/Shyam-Chen/Fastify-Starter)
+
+- API Server
+- Background Worker
 
 ---
 
@@ -139,16 +134,17 @@ Environment: Node
 - Velero + MinIO
 - Longhorn
 - MetalLB + Istio
-- CUDA (NVIDIA Device Plugin, NVIDIA Container Toolkit)
 - 叢集管理 + Rancher
-- 部署
+- 部署應用
   - Front-end App 前端應用
   - Back-end App 後端應用
   - MongoDB 文件資料庫
   - MinIO 檔案儲存
-  - Redis 鍵值對資料庫 -快取和佇列服務
+  - Redis 鍵值對資料庫 - 快取和佇列服務
   - Background Worker 背景作業 - 佇列處理
+  - Ollama 模型
   - Qdrant 向量資料庫
+  - Mailu 電子郵件伺服
 
 ---
 
