@@ -1,5 +1,10 @@
 # Basic - LeetCode 75
 
+> [!IMPORTANT]
+> TODO: 以 [Rust-Journey -> Algorithms -> LeetCode 75](https://github.com/Shyam-Chen/Rust-Journey/blob/main/algorithms/Basic.md) 的寫法來做優化。
+>
+> TODO: 將 TypeScript/Python/Rust 的 LeetCode 75 獨立出來成一個 Repository
+
 Ace Coding Interview with 75 Qs
 
 - 75 Essential & Trending Problems
