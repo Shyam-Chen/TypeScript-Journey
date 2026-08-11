@@ -21,7 +21,7 @@
     "fetch-event-stream": "^0.1.6",
     "is-mobile": "^5.0.0",
     "lodash-es": "4.17.22",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.2.0",
     "ofetch": "1.5.1",
     "shiki": "^3.21.0",
     "valibot": "1.2.0",
