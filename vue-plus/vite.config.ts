@@ -1,20 +1,15 @@
-import { defineConfig } from "vite-plus";
+import tailwindcss from "@tailwindcss/vite";
 import vize from "@vizejs/vite-plugin";
 import { createVizeLintConfig } from "oxlint-plugin-vize";
+import { defineConfig } from "vite-plus";
 
 export default defineConfig({
-  plugins: [vize()],
-  staged: {
-    "*": "vp check --fix",
+  plugins: [tailwindcss(), vize()],
+  fmt: {
+    sortImports: true,
+    sortTailwindcss: true,
   },
-  fmt: {},
   lint: createVizeLintConfig({
-    preset: "recommended",
-    rules: {
-      "no-console": "warn",
-    },
-    settings: {
-      helpLevel: "short",
-    },
+    rules: {},
   }),
 });

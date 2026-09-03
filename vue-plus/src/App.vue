@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import typescriptLogo from './assets/typescript.svg';
-import viteLogo from './assets/vite.svg';
-import heroImg from './assets/hero.png';
+import { ref } from "vue";
+
+import heroImg from "./assets/hero.png";
+import typescriptLogo from "./assets/typescript.svg";
+import viteLogo from "./assets/vite.svg";
 
 const count = ref(0);
 </script>
@@ -89,4 +90,12 @@ const count = ref(0);
 
   <div class="ticks"></div>
   <section id="spacer"></section>
+
+  <p class="Hello text-2xl font-bold ">Hello, World!</p>
 </template>
+
+<style scoped>
+.Hello {
+  @apply text-pink-500;
+}
+</style>
