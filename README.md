@@ -2,20 +2,16 @@
 
 🟦 從開源探索到專案實戰，記錄從懵懂到熟練的每一個里程碑 —— 網頁前後端、雲地端運維、跨平台應用
 
-- Deno Runtime
-  - [程式設計 (Programming)](#程式設計-programming)
-  - [演算法 (Algorithms)](#演算法-algorithms)
-- Node Runtime
-  - [網頁應用 (Web Applications)](#網頁應用-web-applications)
-  - [伺服器應用 (Server Applications)](#伺服器應用-server-applications)
-  - [雲端應用 (Cloud Applications)](#雲端應用-cloud-applications)
-  - [原生應用 (Native Applications)](#原生應用-native-applications)
+- [程式設計 (Programming)](#程式設計-programming)
+- [演算法 (Algorithms)](#演算法-algorithms)
+- [網頁應用 (Web Applications)](#網頁應用-web-applications)
+- [伺服器應用 (Server Applications)](#伺服器應用-server-applications)
+- [雲端應用 (Cloud Applications)](#雲端應用-cloud-applications)
+- [原生應用 (Native Applications)](#原生應用-native-applications)
 
 ---
 
 ## 程式設計 (Programming)
-
-Environment: Deno
 
 - [起手式 (Getting Started)](./programming/README.md#起手式-getting-started)
 - [輸出 (Output)](./programming/README.md#輸出-output)
@@ -48,8 +44,6 @@ Environment: Deno
 ---
 
 ## 演算法 (Algorithms)
-
-Environment: Deno
 
 - [Beginning - Data Structures and Algorithms](./algorithms/learning/Beginning.md)
   - [陣列 (Array)](./algorithms/learning/array/README.md)
@@ -98,8 +92,6 @@ Environment: Deno
 
 ## 網頁應用 (Web Applications)
 
-Environment: Node
-
 [Vue Starter](https://github.com/Shyam-Chen/Vue-Starter)
 
 - SPA
@@ -109,18 +101,14 @@ Environment: Node
 
 ## 伺服器應用 (Server Applications)
 
-Environment: Node
-
 [Fastify Starter](https://github.com/Shyam-Chen/Fastify-Starter)
 
 - API Server
-- Background Worker
+- Background Jobs
 
 ---
 
 ## 雲端應用 (Cloud Applications)
-
-Environment: Node
 
 [Pulumi Starter](https://github.com/Shyam-Chen/Pulumi-Starter)
 
@@ -149,8 +137,6 @@ Environment: Node
 ---
 
 ## 原生應用 (Native Applications)
-
-Environment: Node + Rust (No-code/Low-code)
 
 [Tauri Starter](https://github.com/Shyam-Chen/Tauri-Starter)
 
