@@ -24,7 +24,7 @@
     "markdown-it": "^14.1.0",
     "ofetch": "1.5.1",
     "shiki": "^3.21.0",
-    "valibot": "1.2.0",
+    "valibot": "1.4.2",
     "vue": "3.6.0-alpha.2",
     "vue-formor": "6.0.0",
     "vue-router": "4.6.4",
